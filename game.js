@@ -6,6 +6,3 @@ function nextSequence(){
     var randomChosenColour = buttonColours[Math.floor(randomNumber)];
     gamePattern.push(randomChosenColour);
 }
-
-
-console.log(nextSequence());
