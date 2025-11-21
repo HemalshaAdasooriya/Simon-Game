@@ -9,5 +9,11 @@ function nextSequence(){
     console.log(gamePattern);
 }
 
-
-
+var $button = $("#" + randomChosenColour);
+function flashButton(){
+    $($button).animate({opacity: 0.5},100, 
+        function(){
+        $(this).animate({opacity: 1},100,flashButton);
+    });
+}
+flashButton();
