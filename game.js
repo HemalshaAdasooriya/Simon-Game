@@ -6,14 +6,11 @@ function nextSequence(){
     var randomNumber = Math.random() * 4;
     var randomChosenColour = buttonColours[Math.floor(randomNumber)];
     gamePattern.push(randomChosenColour);
-    console.log(gamePattern);
+
+    $("#"+ randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+
+    var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+    audio.play();
 }
 
-var $button = $("#" + randomChosenColour);
-function flashButton(){
-    $($button).animate({opacity: 0.5},100, 
-        function(){
-        $(this).animate({opacity: 1},100,flashButton);
-    });
-}
-flashButton();
+nextSequence();
