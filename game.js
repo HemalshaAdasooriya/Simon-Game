@@ -1,7 +1,13 @@
 var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
+var level = "level 0";
 
+//start game on keypress
+$(document).keypress(function(){
+    $("#level-title").text(level);
+    nextSequence();
+});
 
 //clicked button identifier
 $(".btn").click(function(){
