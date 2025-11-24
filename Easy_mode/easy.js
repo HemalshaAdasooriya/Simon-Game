@@ -58,9 +58,9 @@ function nextSequence(){
     gamePattern.push(randomChosenColour);
 
     for(i=0; i<gamePattern.length; i++){
-        setTimeout(function(color){
-            $("#"+ color).fadeIn(100).fadeOut(100).fadeIn(100);
-            playSound(color);
+        setTimeout(function(colour){
+            $("#"+ colour).fadeIn(100).fadeOut(100).fadeIn(100);
+            playSound(colour);
         }, 600 * (i+1), gamePattern[i]);
     }
 }
