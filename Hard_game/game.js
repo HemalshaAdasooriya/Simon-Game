@@ -6,8 +6,8 @@ var started = false;
 
 
 //start game on keypress
-$(document).keypress(function(){
-    if (!started){
+$(document).keypress(function(event){
+    if (!started && (event.key ==="a" || event.key === "A")){
         $("#level-title").text("level " + level);
         nextSequence();
         started = true;
@@ -60,12 +60,12 @@ function nextSequence(){
     $("#"+ randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
     playSound(randomChosenColour);
-
+    
 }
 
 //sound effect
 function playSound(name){
-    var audio = new Audio("sounds/" + name + ".mp3");
+    var audio = new Audio("../sounds/" + name + ".mp3");
     audio.play();
 }
 
@@ -81,6 +81,12 @@ function animatePress(currentColour){
 
 //game restart
 function startOver(){
+    $(document).keypress(function(event){
+    if (!started){
+        $("#level-title").text("level " + level);
+        nextSequence();
+        started = true;
+}});
     level = 0;
     gamePattern = [];
     started = false;
