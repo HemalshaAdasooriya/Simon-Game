@@ -14,7 +14,7 @@ $(document).keypress(function(event){
 }});
 
 //clicked button identifier
-$(".btn").click(function(){
+$(".btn-glass").click(function(){
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
     
@@ -81,7 +81,7 @@ function animatePress(currentColour){
     
     setTimeout(function() {
     $("#" + currentColour).removeClass("pressed");
-}, 100);
+}, 200);
 
 }
 
