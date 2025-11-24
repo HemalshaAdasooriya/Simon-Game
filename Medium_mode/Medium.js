@@ -58,11 +58,7 @@ function nextSequence(){
         var randomNumber = Math.random() * 4;
         var randomChosenColour = buttonColours[Math.floor(randomNumber)];
         gamePattern.push(randomChosenColour);
-    
-    
-    // var randomNumber = Math.random() * 4;
-    // var randomChosenColour = buttonColours[Math.floor(randomNumber)];
-    // gamePattern.push(randomChosenColour);
+    }
 
     for(i=0; i<gamePattern.length; i++){
         setTimeout(function(colour){
@@ -70,7 +66,6 @@ function nextSequence(){
             playSound(colour);
         }, 600 * (i+1), gamePattern[i]);
     }
-}
 
 }
 
