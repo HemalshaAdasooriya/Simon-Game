@@ -4,11 +4,7 @@ var userClickedPattern = [];
 var level = 0;
 var started = false;
 
-function startOver(){
-    gamePattern = [];
-    level = 0;
-    started = false;
-}
+
 //start game on keypress
 $(document).keypress(function(){
     if (!started){
@@ -46,12 +42,14 @@ function checkAnswer(currentLevel){
             $("body").removeClass("game-over");
         },200);
         $("#level-title").text("Game Over, Press Any Key to Restart");
+        
         startOver();
     }      
 }
 
 //random color generator
 function nextSequence(){
+    userClickedPattern = [];
     level++;
     $("#level-title").text("level " + level);
     
@@ -62,9 +60,6 @@ function nextSequence(){
     $("#"+ randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
     playSound(randomChosenColour);
-    animatePress(randomChosenColour);
-
-    checkAnswer(userClickedPattern.length - 1);
 
 }
 
@@ -84,6 +79,12 @@ function animatePress(currentColour){
 
 }
 
+//game restart
+function startOver(){
+    level = 0;
+    gamePattern = [];
+    started = false;
+}
 
 
 
