@@ -77,11 +77,11 @@ function playSound(name){
 
 //btn animation effect
 function animatePress(currentColour){
-    $("#" + currentColour).addClass("pressed");
+    $("#" + currentColour).addClass("pressed " + currentColour);
     
     setTimeout(function() {
-    $("#" + currentColour).removeClass("pressed");
-}, 200);
+        $("#" + currentColour).removeClass("pressed " + currentColour);
+    }, 100);
 
 }
 
