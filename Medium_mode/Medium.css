@@ -42,7 +42,7 @@ body {
             overflow: hidden;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
- .inner-glow {
+.inner-glow {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -53,7 +53,7 @@ body {
             border-radius: 50%;
             filter: blur(15px);
             animation: pulse 3s ease-in-out infinite;
-      }
+      } 
 
 @keyframes pulse {
             0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
@@ -135,7 +135,7 @@ body {
             left: 100%;
         }
 
-        .glass-button:active {
+        .btn-glass:active {
             transform: translateY(2px) scale(0.98);
             box-shadow: 
                 0 1px 5px rgba(0, 0, 0, 0.2),
@@ -148,11 +148,11 @@ body {
             backdrop-filter: blur(15px);
         }
 
-        .glass-button:active .inner-glow {
+        .btn-glass:active .inner-glow {
             opacity: 0.3;
             transform: translate(-50%, -50%) scale(0.8);
         }
-        .glass-button:active .depth-layer {
+        .btn-glass:active .depth-layer {
             background: linear-gradient(180deg, 
                 rgba(0, 0, 0, 0.3) 0%, 
                 transparent 40%, 
@@ -160,7 +160,7 @@ body {
                 rgba(255, 255, 255, 0.05) 100%);
         }
 
-        .glass-button:active::after {
+        .btn-glass:active::after {
             opacity: 0.3;
         }
         .btn-glass.blue {
@@ -171,7 +171,7 @@ body {
                 0 2px 8px rgba(0, 0, 0, 0.2),
                 inset 0 1px 0 rgba(255, 255, 255, 0.4),
                 inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
+        } 
         .glass-button.blue:active {
             background: linear-gradient(145deg, rgba(67, 56, 202, 0.7), rgba(67, 56, 202, 0.9));
             box-shadow: 
@@ -181,7 +181,7 @@ body {
                 inset 0 -1px 0 rgba(255, 255, 255, 0.2),
                 inset 0 4px 8px rgba(0, 0, 0, 0.4),
                 inset 0 0 20px rgba(0, 0, 0, 0.3);
-        }
+        } 
 
         .btn-glass.green {
             background: linear-gradient(145deg, rgba(16, 185, 129, 0.4), rgba(16, 185, 129, 0.2));
