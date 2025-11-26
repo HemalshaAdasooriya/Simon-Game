@@ -81,7 +81,7 @@ function animatePress(currentColour){
     
     setTimeout(function() {
         $("#" + currentColour).removeClass("flash");
-    }, 400);
+    }, 100);
 
 }
 

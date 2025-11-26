@@ -22,7 +22,6 @@ body {
   display: inline-block;
   height: 200px;
   width: 200px;
-  border: 10px solid black;
   border-radius: 20%;
 }
 .glass-btn {
@@ -32,7 +31,6 @@ body {
             font-weight: 700;
             color: white;
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-            border: 3px solid rgba(255, 255, 255, 0.4);
             border-radius: 20px;
             backdrop-filter: blur(15px);
             cursor: pointer;
@@ -328,7 +326,9 @@ body {
   background-color: yellow;
 } */
 
-.pressed {
-  box-shadow: 0 0 20px white;
-  background-color: grey;
+
+.flash {
+    box-shadow: 0 0 40px white;
+    background-color: rgb(255, 255, 255);
+    animation: flashWhite 0.4s ease-out;
 }
