@@ -14,7 +14,7 @@ $(document).keypress(function(event){
 }});
 
 //clicked button identifier
-$(".btn-glass").click(function(){
+$(".glass-btn").click(function(){
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
     
@@ -77,11 +77,11 @@ function playSound(name){
 
 //btn animation effect
 function animatePress(currentColour){
-    $("#" + currentColour).addClass("pressed " + currentColour);
+    $("#" + currentColour).addClass("flash");
     
     setTimeout(function() {
-        $("#" + currentColour).removeClass("pressed " + currentColour);
-    }, 100);
+        $("#" + currentColour).removeClass("flash");
+    }, 400);
 
 }
 
@@ -99,4 +99,12 @@ function startOver(){
 }
 
 
-
+// Add flash effect on click
+        document.querySelectorAll('.glass-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('flash');
+                setTimeout(() => {
+                    this.classList.remove('flash');
+                }, 400);
+            });
+        });
