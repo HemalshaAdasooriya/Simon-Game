@@ -1,0 +1,14 @@
+body {
+    background-color: #ffecd2;
+}
+.containerr {
+    margin-top: 15%;
+    background-color: #feb47b62;
+    border-radius: 10px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    
+}
