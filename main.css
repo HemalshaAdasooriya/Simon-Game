@@ -1,5 +1,5 @@
 body {
-    /* background-color: #ffecd2; */
+    background-color:  gray;
 }
 .containerr {
     margin-top: 10%;
@@ -10,6 +10,7 @@ body {
     align-items: center;
     align-self: center;
     align-content: center;
+    margin-bottom: 50px;
     
 }
 .card {
