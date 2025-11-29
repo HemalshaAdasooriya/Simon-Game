@@ -17,20 +17,299 @@ body {
 
 }
 
-.btn {
+.glass-btn {
   margin: 25px;
   display: inline-block;
   height: 200px;
   width: 200px;
-  border: 10px solid black;
   border-radius: 20%;
 }
+.glass-btn {
+            position: relative;
+            padding: 20px 45px;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.6);
+            box-shadow: 
+                0 15px 45px rgba(0, 0, 0, 0.4),
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                inset 0 3px 8px rgba(255, 255, 255, 0.4),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+                inset 3px 0 8px rgba(255, 255, 255, 0.2),
+                inset -3px 0 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transform: translateZ(0) rotateX(8deg) rotateY(0deg);
+        }
+        
+        .glass-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .glass-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        /* Side depth effect */
+        .glass-btn .btn-text::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: inherit;
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(2px);
+            transform: translateZ(-10px);
+        }
+
+        .glass-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .glass-btn:hover::after {
+            animation: shine 0.8s ease;
+        }
+
+        @keyframes shine {
+            0% {
+                top: -50%;
+                left: -50%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: 150%;
+                left: 150%;
+                opacity: 0;
+            }
+        }
+
+        .glass-btn:hover {
+            transform: translateZ(50px) rotateX(0deg) scale(1.05);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                inset 0 4px 12px rgba(255, 255, 255, 0.5),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+                inset 4px 0 12px rgba(255, 255, 255, 0.3),
+                inset -4px 0 12px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .glass-btn:active {
+            transform: translateZ(15px) rotateX(4deg) scale(0.98);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                0 3px 10px rgba(0, 0, 0, 0.3),
+                inset 0 3px 8px rgba(255, 255, 255, 0.3),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes flashWhite {
+            0% {
+                background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+                box-shadow: 
+                    0 0 40px rgba(255, 255, 255, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                background: inherit;
+                box-shadow: inherit;
+            }
+        }
+
+        .glass-btn.flash {
+            animation: flashWhite 0.4s ease-out;
+        }
+
+        .btn-text {
+            position: relative;
+            z-index: 1;
+            display: block;
+            transform: translateZ(25px);
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Variant styles */
+        .blue {
+            background: linear-gradient(145deg, rgba(99, 102, 241, 0.4), rgba(79, 70, 229, 0.3));
+            border-color: rgba(99, 102, 241, 0.6);
+            box-shadow: 
+                0 15px 45px rgba(99, 102, 241, 0.5),
+                0 5px 15px rgba(99, 102, 241, 0.4),
+                inset 0 3px 8px rgba(147, 197, 253, 0.5),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+                inset 3px 0 8px rgba(147, 197, 253, 0.3),
+                inset -3px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .blue:hover {
+            box-shadow: 
+                0 30px 80px rgba(99, 102, 241, 0.7),
+                0 10px 30px rgba(99, 102, 241, 0.5),
+                inset 0 4px 12px rgba(147, 197, 253, 0.6),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+                inset 4px 0 12px rgba(147, 197, 253, 0.4),
+                inset -4px 0 12px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(99, 102, 241, 0.5);
+        }
+
+        .green {
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.3));
+            border-color: rgba(16, 185, 129, 0.6);
+            box-shadow: 
+                0 15px 45px rgba(16, 185, 129, 0.5),
+                0 5px 15px rgba(16, 185, 129, 0.4),
+                inset 0 3px 8px rgba(110, 231, 183, 0.5),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+                inset 3px 0 8px rgba(110, 231, 183, 0.3),
+                inset -3px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .green:hover {
+            box-shadow: 
+                0 30px 80px rgba(13, 201, 138, 0.7),
+                0 10px 30px rgba(14, 201, 139, 0.61),
+                inset 0 4px 12px rgba(110, 231, 183, 0.6),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+                inset 4px 0 12px rgba(110, 231, 183, 0.4),
+                inset -4px 0 12px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(16, 185, 129, 0.5);
+        }
+
+        .red {
+            background: linear-gradient(145deg, rgba(239, 68, 68, 0.4), rgba(220, 38, 38, 0.3));
+            border-color: rgba(239, 68, 68, 0.6);
+            box-shadow: 
+                0 15px 45px rgba(239, 68, 68, 0.5),
+                0 5px 15px rgba(239, 68, 68, 0.4),
+                inset 0 3px 8px rgba(252, 165, 165, 0.5),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+                inset 3px 0 8px rgba(252, 165, 165, 0.3),
+                inset -3px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .red:hover {
+            box-shadow: 
+                0 30px 80px rgba(239, 68, 68, 0.7),
+                0 10px 30px rgba(239, 68, 68, 0.5),
+                inset 0 4px 12px rgba(252, 165, 165, 0.6),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+                inset 4px 0 12px rgba(252, 165, 165, 0.4),
+                inset -4px 0 12px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(239, 68, 68, 0.5);
+        }
+
+        .yellow {
+            background: linear-gradient(145deg, rgba(251, 191, 36, 0.4), rgba(245, 158, 11, 0.3));
+            border-color: rgba(251, 191, 36, 0.6);
+            box-shadow: 
+                0 15px 45px rgba(251, 191, 36, 0.5),
+                0 5px 15px rgba(251, 191, 36, 0.4),
+                inset 0 3px 8px rgba(253, 224, 71, 0.6),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+                inset 3px 0 8px rgba(253, 224, 71, 0.4),
+                inset -3px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .yellow:hover {
+            box-shadow: 
+                0 30px 80px rgba(251, 191, 36, 0.7),
+                0 10px 30px rgba(251, 191, 36, 0.5),
+                inset 0 4px 12px rgba(253, 224, 71, 0.7),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+                inset 4px 0 12px rgba(253, 224, 71, 0.5),
+                inset -4px 0 12px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(251, 191, 36, 0.6);
+        }
+
+        /* .glass-btn-cosmic {
+            background: linear-gradient(145deg, rgba(168, 85, 247, 0.4), rgba(139, 92, 246, 0.3));
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 
+                0 15px 45px rgba(168, 85, 247, 0.5),
+                0 5px 15px rgba(168, 85, 247, 0.4),
+                inset 0 3px 8px rgba(216, 180, 254, 0.5),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+                inset 3px 0 8px rgba(216, 180, 254, 0.3),
+                inset -3px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-btn-cosmic:hover {
+            box-shadow: 
+                0 30px 80px rgba(168, 85, 247, 0.7),
+                0 10px 30px rgba(168, 85, 247, 0.5),
+                inset 0 4px 12px rgba(216, 180, 254, 0.6),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+                inset 4px 0 12px rgba(216, 180, 254, 0.4),
+                inset -4px 0 12px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(168, 85, 247, 0.5);
+        } */
+
+        .glass-btn-outline {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 3px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .glass-btn-outline:hover {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Size variants */
+        .glass-btn-sm {
+            padding: 12px 30px;
+            font-size: 14px;
+        }
+
+        .glass-btn-lg {
+            padding: 28px 60px;
+            font-size: 22px;
+        }
 
 .game-over {
   background-color: red;
   opacity: 0.8;
 }
-
+/* 
 .red {
   background-color: red;
 }
@@ -45,9 +324,11 @@ body {
 
 .yellow {
   background-color: yellow;
-}
+} */
 
-.pressed {
-  box-shadow: 0 0 20px white;
-  background-color: grey;
+
+.flash {
+    box-shadow: 0 0 40px white;
+    background-color: rgb(255, 255, 255);
+    animation: flashWhite 0.4s ease-out;
 }

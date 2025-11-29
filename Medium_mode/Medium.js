@@ -14,7 +14,7 @@ $(document).keypress(function(event){
 }});
 
 //clicked button identifier
-$(".glass-btn").click(function(){
+$(".btn").click(function(){
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
     
@@ -50,15 +50,12 @@ function checkAnswer(currentLevel){
 //random color generator
 function nextSequence(){
     userClickedPattern = [];
-    gamePattern = [];
     level++;
     $("#level-title").text("level " + level);
-
-    for(n=0; n<level; n++){
-        var randomNumber = Math.random() * 4;
-        var randomChosenColour = buttonColours[Math.floor(randomNumber)];
-        gamePattern.push(randomChosenColour);
-    }
+    
+    var randomNumber = Math.random() * 4;
+    var randomChosenColour = buttonColours[Math.floor(randomNumber)];
+    gamePattern.push(randomChosenColour);
 
     for(i=0; i<gamePattern.length; i++){
         setTimeout(function(colour){
@@ -66,7 +63,6 @@ function nextSequence(){
             playSound(colour);
         }, 600 * (i+1), gamePattern[i]);
     }
-
 }
 
 //sound effect
@@ -77,11 +73,11 @@ function playSound(name){
 
 //btn animation effect
 function animatePress(currentColour){
-    $("#" + currentColour).addClass("flash");
+    $("#" + currentColour).addClass("pressed");
     
     setTimeout(function() {
-        $("#" + currentColour).removeClass("flash");
-    }, 100);
+    $("#" + currentColour).removeClass("pressed");
+}, 100);
 
 }
 
@@ -99,12 +95,4 @@ function startOver(){
 }
 
 
-// Add flash effect on click
-        document.querySelectorAll('.glass-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.add('flash');
-                setTimeout(() => {
-                    this.classList.remove('flash');
-                }, 400);
-            });
-        });
+
