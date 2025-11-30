@@ -5,6 +5,7 @@ var level = 0;
 var started = false;
 
 
+
 //start game on keypress
 $(document).keypress(function(event){
     if (!started && (event.key ==="a" || event.key === "A")){
@@ -32,6 +33,7 @@ function checkAnswer(currentLevel){
                 setTimeout(function(){
                     nextSequence();
                 }, 1000);
+                updateScore(level);
             } 
     }  else {
         console.log("wrong");
@@ -108,3 +110,22 @@ function startOver(){
                 }, 400);
             });
         });
+
+
+//score board
+let score = 0;
+let highScore = localStorage.getItem("highScore") || 0; 
+function updateScore(level) {
+    score = level;
+    document.getElementById("score").innerHTML = "Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + score;
+    if(score > highScore){
+        highScore = score;
+        localStorage.setItem("highScore", highScore); // Store in localStorage
+        document.getElementById("high_score").innerHTML = "High Score : " + highScore;
+    }
+    else{
+        document.getElementById("high_score").innerHTML = "High Score : " + highScore;
+    }
+}
+
+    
