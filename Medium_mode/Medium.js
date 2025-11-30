@@ -14,7 +14,7 @@ $(document).keypress(function(event){
 }});
 
 //clicked button identifier
-$(".btn").click(function(){
+$(".glass-btn").click(function(){
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
     
@@ -94,5 +94,13 @@ function startOver(){
     started = false;
 }
 
-
+// Add flash effect on click
+        document.querySelectorAll('.glass-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('flash');
+                setTimeout(() => {
+                    this.classList.remove('flash');
+                }, 400);
+            });
+        });
 
