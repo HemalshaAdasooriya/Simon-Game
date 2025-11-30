@@ -12,6 +12,7 @@ $(document).keypress(function(event){
     if (!started && (event.key ==="a" || event.key === "A")){
         $("#level-title").text("level " + level);
         nextSequence();
+        updateScore(score);
         started = true;
         
 }});
@@ -123,10 +124,18 @@ function updateScore(level) {
         highScore = score;
         localStorage.setItem("highScore", highScore); // Store in localStorage
         document.getElementById("high_score").innerHTML = "High Score : " + highScore;
+        colorchange();
     }
     else{
         document.getElementById("high_score").innerHTML = "High Score : " + highScore;
     }
 }
 
+function colorchange(){
+    $("#high_score").css("color", "red");
     
+    setTimeout(function() {
+        $("#high_score").css("color", "white");
+    }, 100);
+
+}   

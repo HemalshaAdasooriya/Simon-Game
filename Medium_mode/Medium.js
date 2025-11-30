@@ -3,6 +3,8 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
+let score_medium = 0;
+let highScore_medium = localStorage.getItem("highScore_medium") || 0; 
 
 
 //start game on keypress
@@ -10,6 +12,7 @@ $(document).keypress(function(event){
     if (!started && (event.key ==="a" || event.key === "A")){
         $("#level-title").text("level " + level);
         nextSequence();
+        updateScore(score_medium);
         started = true;
 }});
 
@@ -32,6 +35,7 @@ function checkAnswer(currentLevel){
                 setTimeout(function(){
                     nextSequence();
                 }, 1000);
+                updateScore(level);
             } 
     }  else {
         console.log("wrong");
@@ -87,9 +91,11 @@ function startOver(){
     if (!started){
         $("#level-title").text("level " + level);
         nextSequence();
+        updateScore(score_medium);
         started = true;
 }});
     level = 0;
+    score_medium = 0;
     gamePattern = [];
     started = false;
 }
@@ -104,3 +110,16 @@ function startOver(){
             });
         });
 
+//score board
+function updateScore(level) {
+    score_medium = level;
+    document.getElementById("score_medium").innerHTML = "Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + score_medium;
+    if(score_medium > highScore_medium){
+        highScore_medium = score_medium;
+        localStorage.setItem("highScore_medium", highScore_medium); // Store in localStorage
+        document.getElementById("high_score_medium").innerHTML = "High Score : " + highScore_medium;
+    }
+    else{
+        document.getElementById("high_score_medium").innerHTML = "High Score : " + highScore_medium;
+    }
+}
