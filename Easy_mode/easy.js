@@ -13,6 +13,7 @@ $(document).keypress(function(event){
         $("#level-title").text("level " + level);
         nextSequence();
         started = true;
+        
 }});
 
 //clicked button identifier
@@ -22,7 +23,6 @@ $(".glass-btn").click(function(){
     
     playSound(userChosenColour);
     animatePress(userChosenColour);
-    
     checkAnswer(userClickedPattern.length - 1);
 });
 
@@ -94,11 +94,11 @@ function startOver(){
     if (!started){
         $("#level-title").text("level " + level);
         nextSequence();
+        updateScore(score);
         started = true;
 }});
     level = 0;
     score = 0;
-    updateScore(score);
     gamePattern = [];
     started = false;
 }
