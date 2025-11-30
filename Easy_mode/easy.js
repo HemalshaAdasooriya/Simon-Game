@@ -3,7 +3,8 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
-
+let score = 0;
+let highScore = localStorage.getItem("highScore") || 0; 
 
 
 //start game on keypress
@@ -96,6 +97,8 @@ function startOver(){
         started = true;
 }});
     level = 0;
+    score = 0;
+    updateScore(score);
     gamePattern = [];
     started = false;
 }
@@ -113,8 +116,6 @@ function startOver(){
 
 
 //score board
-let score = 0;
-let highScore = localStorage.getItem("highScore") || 0; 
 function updateScore(level) {
     score = level;
     document.getElementById("score").innerHTML = "Score&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + score;
