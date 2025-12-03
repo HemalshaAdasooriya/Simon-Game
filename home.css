@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+    .container {
+        position: relative;
+        text-align: center;
+        display: block;
+    }
+
+    .bottom-text {
+        text-align: center;
+        top: 20px;
+        font-size: 150px;
+        color: grey;
+        z-index: 1; 
+    }
+
+    .overlay-text {
+        text-align: center;
+        position: absolute;
+        top: 50px;
+        left: 550px;
+        font-size: 50px;
+        color: blue;
+        z-index: 2; 
+    }
