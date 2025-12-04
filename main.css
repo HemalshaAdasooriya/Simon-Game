@@ -44,3 +44,13 @@ header h2 {
     transform: translateY(-10px);
 }
 
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 100px;
+    }
+    header h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }   
+}
