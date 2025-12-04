@@ -18,9 +18,11 @@ body {
         text-align: center;
         top: 20px;
         font-size: 150px;
-        color: rgb(0, 0, 0);
+        
         z-index: 1;
         font-family: 'Simonetta', serif; 
+        color: #19183B; /* Initial color from your array */
+        transition: color 2.0s ease-in-out;
     }
 
     .overlay-text {
