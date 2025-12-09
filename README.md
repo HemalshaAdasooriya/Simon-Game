@@ -28,3 +28,4 @@ Nothing special — just a modern web browser (Chrome / Firefox / Edge / Safari)
 1. Clone the repo  
    ```bash
    git clone https://github.com/HemalshaAdasooriya/Simon-Game.git
+
